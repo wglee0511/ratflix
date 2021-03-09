@@ -1,0 +1,22 @@
+@import "./reset.css";
+@import "./navbar.css";
+:root {
+  --nav-bg: #121212;
+  --netflix-red: #e50914;
+  --font-color: #ffffff;
+  --input-color: #f7f7f7;
+}
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  color: var(--font-color);
+}
+
+h2 {
+  color: var(--netflix-red);
+  font-weight: 1000;
+  font-size: 40px;
+}
+a {
+  text-decoration: none;
+  color: var(--font-color);
+}
