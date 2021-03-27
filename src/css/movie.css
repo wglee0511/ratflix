@@ -1,0 +1,18 @@
+.movie-layout{
+    display: flex;
+    padding: 25px 32px 25px 32px;
+    flex-direction: column;
+}
+
+.movie-text{
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.movies{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, auto));
+    grid-template-rows: repeat(auto-fill, 1fr 1fr 1fr 1fr 1fr);
+
+}
