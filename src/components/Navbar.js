@@ -6,7 +6,9 @@ import theme from "../styles/theme";
 
 
 const NavDiv = styled.div`
-color: black;
+color: ${theme.FontColor};
+display:flex;
+align-items: center;
 `
 
 const BannerText = styled.h1`
@@ -14,7 +16,13 @@ font-weight: 800;
 font-size: 30px;
 color: ${theme.BannerColor};
 `
-const EachNav = styled.div``
+const BannerNav = styled.div`
+margin: 15px 15px 15px 15px;
+`
+
+const EachNav = styled.div`
+margin: 15px 15px 15px 15px;
+`
 
 
 const LinkDiv = styled(Link)`` 
@@ -23,9 +31,12 @@ const LinkDiv = styled(Link)``
 const Navbar = (props) => {
     return (
         <NavDiv>
-            <EachNav>
+            <BannerNav>
             <BannerText>Ratflix</BannerText>
-            </EachNav>
+            </BannerNav>
+            <EachNav >Movie</EachNav>
+            <EachNav>Tv</EachNav>
+            <EachNav>Search</EachNav>
 
         </NavDiv>
 
