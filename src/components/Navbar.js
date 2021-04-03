@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {Link, useParams} from "react-router-dom";
+import {Link, useRouteMatch, withRouter} from "react-router-dom";
 import theme from "../styles/theme";
 
 
@@ -13,7 +13,7 @@ align-items: center;
 background-color: ${theme.NavBgColor};
 `
 
-const BannerText = styled.h1`
+const BannerText = styled(Link)`
 font-weight: 800;
 font-size: 30px;
 color: ${theme.BannerColor};
@@ -27,7 +27,9 @@ height: 100%;
 display: flex;
 justify-content: center;
 align-items: center;
-border-bottom: 3px solid ${theme.EtcColor};
+    border-bottom: 3px solid ${props=> props.current?theme.EtcColor:"transparent"}
+
+;
 `
 
 const BannerNav = styled.div`
@@ -39,16 +41,21 @@ height: 100%;
 `
 
 const Navbar = (props) => {
-    const params = useParams();
-    console.log(params);
+    const matchTv = useRouteMatch({
+        path: "/tv"
+    });
+    const matchSearch = useRouteMatch({
+        path: "/search"
+    });
+    
     return (
         <NavDiv>
             <BannerNav>
-            <BannerText>Ratflix</BannerText>
+            <BannerText to="/">Ratflix</BannerText>
             </BannerNav>
-            <EachNav><EachLink to="/" >Movie</EachLink></EachNav>
-            <EachNav><EachLink to="/tv" >TV</EachLink></EachNav>
-            <EachNav><EachLink to="/search" >Search</EachLink></EachNav>
+
+            <EachNav><EachLink to="/tv" current={matchTv!==null?true:false} >TV</EachLink></EachNav>
+            <EachNav><EachLink to="/search" current={matchSearch!==null?true:false}>Search</EachLink></EachNav>
 
         </NavDiv>
 
