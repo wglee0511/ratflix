@@ -1,5 +1,6 @@
 import {createGlobalStyle} from "styled-components";
 import reset from "styled-reset";
+import theme from "./theme";
 
 const GlobalStyles = createGlobalStyle`
     ${reset}
@@ -9,7 +10,7 @@ const GlobalStyles = createGlobalStyle`
     }
     body{
         font-size:14px;
-        background-color:rgba(20,20,20,0.5);
+        background-color:${theme.BgColor};
         font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     }
     a{
