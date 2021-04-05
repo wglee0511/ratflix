@@ -9,9 +9,11 @@ const api = axios.create({
 });
 
 const getNowPlayMovies = api.get("movie/now_playing/");
+const getPopMovies = api.get("movie/popular/");
 
 const apis = {
   getNowPlayMovies,
+  getPopMovies,
 };
 
 export default apis;

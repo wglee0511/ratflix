@@ -9,8 +9,9 @@ const LoaderWrapper = styled.div.attrs({
   className: "flex-box",
 })``;
 
-const Movie = () => {
-  const [NowMovie, setNowMovie] = useState({});
+const Movie = (props) => {
+  const [nowMovie, setNowMovie] = useState({});
+  const [popMovies, setPopMovies] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -18,15 +19,22 @@ const Movie = () => {
       setIsLoading(true);
       await apis.getNowPlayMovies
         .then((res) => {
-          const NowMovieApiData = res.data.results;
-          setNowMovie(NowMovieApiData);
+          const nowMovieApiData = res.data.results;
+          setNowMovie(nowMovieApiData);
           setIsLoading(false);
+        })
+        .catch((error) => console.error(error));
+
+      await apis.getPopMovies
+        .then((res) => {
+          const popMovieData = res.data.results;
+          setPopMovies(popMovieData);
         })
         .catch((error) => console.error(error));
     })();
   }, []);
 
-  console.log(NowMovie);
+  console.log(nowMovie, popMovies);
 
   return (
     <Wrapper>
