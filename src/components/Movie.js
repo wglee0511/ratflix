@@ -12,6 +12,7 @@ const LoaderWrapper = styled.div.attrs({
 const Movie = (props) => {
   const [nowMovie, setNowMovie] = useState({});
   const [popMovies, setPopMovies] = useState({});
+  const [topMovies, setTopMovies] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -21,7 +22,6 @@ const Movie = (props) => {
         .then((res) => {
           const nowMovieApiData = res.data.results;
           setNowMovie(nowMovieApiData);
-          setIsLoading(false);
         })
         .catch((error) => console.error(error));
 
@@ -31,10 +31,18 @@ const Movie = (props) => {
           setPopMovies(popMovieData);
         })
         .catch((error) => console.error(error));
+
+      await apis.getTopRatedMovies
+        .then((res) => {
+          const topMovieData = res.data.results;
+          setTopMovies(topMovieData);
+          setIsLoading(false);
+        })
+        .catch((error) => console.error(error));
     })();
   }, []);
 
-  console.log(nowMovie, popMovies);
+  console.log(nowMovie, popMovies, topMovies);
 
   return (
     <Wrapper>

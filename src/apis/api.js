@@ -10,10 +10,12 @@ const api = axios.create({
 
 const getNowPlayMovies = api.get("movie/now_playing/");
 const getPopMovies = api.get("movie/popular/");
+const getTopRatedMovies = api.get("movie/top_rated");
 
 const apis = {
   getNowPlayMovies,
   getPopMovies,
+  getTopRatedMovies,
 };
 
 export default apis;
