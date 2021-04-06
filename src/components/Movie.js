@@ -18,21 +18,21 @@ const Movie = (props) => {
   useEffect(() => {
     (async () => {
       setIsLoading(true);
-      await apis.getNowPlayMovies
+      await apis.movies.getNowPlayMovies
         .then((res) => {
           const nowMovieApiData = res.data.results;
           setNowMovie(nowMovieApiData);
         })
         .catch((error) => console.error(error));
 
-      await apis.getPopMovies
+      await apis.movies.getPopMovies
         .then((res) => {
           const popMovieData = res.data.results;
           setPopMovies(popMovieData);
         })
         .catch((error) => console.error(error));
 
-      await apis.getTopRatedMovies
+      await apis.movies.getTopRatedMovies
         .then((res) => {
           const topMovieData = res.data.results;
           setTopMovies(topMovieData);
