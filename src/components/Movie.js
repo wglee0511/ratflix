@@ -10,39 +10,34 @@ const LoaderWrapper = styled.div.attrs({
 })``;
 
 const Movie = (props) => {
-  const [nowMovie, setNowMovie] = useState({});
-  const [popMovies, setPopMovies] = useState({});
-  const [topMovies, setTopMovies] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [now, setNow] = useState({});
+  const [pop, setPop] = useState({});
+  const [top, setTop] = useState({});
 
   useEffect(() => {
     (async () => {
       setIsLoading(true);
-      await apis.movies.getNowPlayMovies
-        .then((res) => {
-          const nowMovieApiData = res.data.results;
-          setNowMovie(nowMovieApiData);
-        })
-        .catch((error) => console.error(error));
+      try {
+        const apiNowData = await apis.movies.getNowPlayMovies;
+        const nowData = apiNowData.data.results;
 
-      await apis.movies.getPopMovies
-        .then((res) => {
-          const popMovieData = res.data.results;
-          setPopMovies(popMovieData);
-        })
-        .catch((error) => console.error(error));
+        const apiPopData = await apis.movies.getPopMovies;
+        const popData = apiPopData.data.results;
 
-      await apis.movies.getTopRatedMovies
-        .then((res) => {
-          const topMovieData = res.data.results;
-          setTopMovies(topMovieData);
-          setIsLoading(false);
-        })
-        .catch((error) => console.error(error));
+        const apiTopData = await apis.movies.getTopRatedMovies;
+        const topData = apiTopData.data.results;
+
+        setNow(nowData);
+        setPop(popData);
+        setTop(topData);
+
+        setIsLoading(true);
+      } catch (error) {
+        console.log(error);
+      }
     })();
   }, []);
-
-  console.log(nowMovie, popMovies, topMovies);
 
   return (
     <Wrapper>
