@@ -4,17 +4,22 @@ import { Link, withRouter } from "react-router-dom";
 import theme from "../styles/theme";
 import Input from "./Input";
 
-const NavDiv = styled.div`
-  height: 10vh;
+const NavDiv = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6vh;
   color: ${theme.FontColor};
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: ${theme.NavBgColor};
+  z-index: 10;
 `;
 
 const BannerNavWrapper = styled.div`
-  height: 100%;
+  height: 6vh;
 
   display: flex;
   align-items: center;

@@ -5,10 +5,15 @@ import Movie from "./components/Movie";
 import TvProgram from "./components/TvProgram";
 import Search from "./components/Search";
 import Home from "./components/Home";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  width: 100%;
+`;
 
 function App() {
   return (
-    <>
+    <Wrapper>
       <Router>
         <Navbar />
         <Switch>
@@ -26,7 +31,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </>
+    </Wrapper>
   );
 }
 

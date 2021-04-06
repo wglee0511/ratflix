@@ -28,11 +28,13 @@ const Movie = (props) => {
         const apiTopData = await apis.movies.getTopRatedMovies;
         const topData = apiTopData.data.results;
 
+        console.log(nowData, popData, topData);
+
         setNow(nowData);
         setPop(popData);
         setTop(topData);
 
-        setIsLoading(true);
+        setIsLoading(false);
       } catch (error) {
         console.log(error);
       }

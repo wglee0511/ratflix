@@ -9,10 +9,12 @@ const GlobalStyles = createGlobalStyle`
         box-sizing:border-box;
     }
     body{
+        
         font-size:14px;
         background-color:${theme.BgColor};
         font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     }
+    
     a{
         text-decoration:none;
         color:inherit;

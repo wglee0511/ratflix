@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import apis from "../apis/api";
+import Loader from "./Loader";
 
 const Wrapper = styled.div``;
 
@@ -16,7 +18,8 @@ const Search = () => {
       setIsLoading(true);
       try {
         const movieSearch = await apis.search.getSearchMovie("아이언맨");
-        console.log(movieSearch.data);
+
+        setIsLoading(false);
       } catch (error) {
         console.log(error);
       }

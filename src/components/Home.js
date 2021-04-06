@@ -5,6 +5,12 @@ import Loader from "./Loader";
 
 const Wrapper = styled.div``;
 
+const MainFrameDiv = styled.div``;
+
+const TvGridDiv = styled.div``;
+
+const MovieGridDiv = styled.div``;
+
 const LoaderWrapper = styled.div.attrs({
   className: "flex-box",
 })``;
@@ -33,7 +39,7 @@ const Home = () => {
     })();
   }, []);
 
-  console.log(movie);
+  console.log(movie[0]);
 
   return (
     <Wrapper>
@@ -42,7 +48,7 @@ const Home = () => {
           <Loader />
         </LoaderWrapper>
       )}
-      {!isLoading && <div>Home</div>}
+      {!isLoading && <MainFrameDiv>program</MainFrameDiv>}
     </Wrapper>
   );
 };

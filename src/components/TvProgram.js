@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import apis from "../apis/api";
+import Loader from "./Loader";
 
 const Wrapper = styled.div``;
 

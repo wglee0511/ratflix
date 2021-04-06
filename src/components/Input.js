@@ -6,15 +6,17 @@ const Wrapper = styled.div.attrs({
   className: "flex-box",
 })`
   height: 100%;
+  margin-right: 10px;
 `;
 const StyledForm = styled.form`
   height: 100%;
   display: flex;
-  font-size: 40px;
+  font-size: 30px;
 
+  justify-content: flex-end;
   align-items: center;
   svg {
-    height: 30%;
+    width: 20px;
   }
   :hover {
     cursor: pointer;
@@ -29,7 +31,7 @@ const StyledInput = styled.input`
   height: 35px;
   font-size: 17px;
   transition: 0.4s;
-  width: 80%;
+  width: 60%;
   margin-left: 10px;
 `;
 
