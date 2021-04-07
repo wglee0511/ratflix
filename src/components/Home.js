@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import apis from "../apis/api";
 import Loader from "./Loader";
+import MainMovie from "./MainMovie";
 
 const Wrapper = styled.div``;
 
@@ -13,12 +14,15 @@ const MovieGridDiv = styled.div``;
 
 const LoaderWrapper = styled.div.attrs({
   className: "flex-box",
-})``;
+})`
+  margin-top: 30vh;
+`;
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [movie, setMovie] = useState({});
-  const [program, setProgram] = useState({});
+  const [movies, setMovies] = useState({});
+  const [programs, setPrograms] = useState({});
+  const [firstMovie, setFirstMovie] = useState({});
 
   useEffect(() => {
     (async () => {
@@ -30,16 +34,23 @@ const Home = () => {
         const apiProgramData = await apis.tvprograms.getOnTheAirPrograms;
         const programData = apiProgramData.data.results;
 
-        setMovie(movieData);
-        setProgram(programData);
+        setMovies(movieData);
+        setPrograms(programData);
+        setFirstMovie({
+          id: movieData[0].id,
+          overview: movieData[0].overview,
+          poster_path: movieData[0].poster_path,
+          title: movieData[0].title,
+          vote_average: movieData[0].vote_average,
+        });
+        console.log(movies);
+
         setIsLoading(false);
       } catch (error) {
         console.log(error);
       }
     })();
   }, []);
-
-  console.log(movie[0]);
 
   return (
     <Wrapper>
@@ -48,7 +59,11 @@ const Home = () => {
           <Loader />
         </LoaderWrapper>
       )}
-      {!isLoading && <MainFrameDiv>program</MainFrameDiv>}
+      {!isLoading && (
+        <MainFrameDiv>
+          <MainMovie firstMovie={firstMovie} />
+        </MainFrameDiv>
+      )}
     </Wrapper>
   );
 };

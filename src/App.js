@@ -6,6 +6,8 @@ import TvProgram from "./components/TvProgram";
 import Search from "./components/Search";
 import Home from "./components/Home";
 import styled from "styled-components";
+import MovieDetail from "./components/Detail/MovieDetail";
+import TvDetail from "./components/Detail/TvDetail";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -20,14 +22,20 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/movies">
+          <Route path="/movies">
             <Movie />
           </Route>
-          <Route exact path="/tv">
+          <Route path="/tv">
             <TvProgram />
           </Route>
           <Route exact path="/search">
             <Search />
+          </Route>
+          <Route exact path="/movies/:id">
+            <MovieDetail />
+          </Route>
+          <Route exact path="/tv/:id">
+            <TvDetail />
           </Route>
         </Switch>
       </Router>
