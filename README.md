@@ -6,7 +6,10 @@ React JS Fundamantal Project
 
 ## Stack
 
-- Create react app
+- React
+  - useContext
+  - useEffect
+  - useState
 - Styled-components
 - Axios
 - React-Router-Dom

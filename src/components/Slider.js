@@ -2,8 +2,6 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const Slider = (props) => {
-  const data = props.Tv;
-
   return (
     <Swiper
       spaceBetween={50}

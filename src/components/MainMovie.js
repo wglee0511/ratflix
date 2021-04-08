@@ -1,6 +1,8 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import apis from "../apis/api";
+import { ApiContext } from "../Context/ApiContext";
 import theme from "../styles/theme";
 
 const Wrapper = styled.div`
@@ -61,8 +63,9 @@ const ImgBox = styled.img`
   object-fit: scale-down;
 `;
 
-const MainMovie = (props) => {
-  const movieData = props.firstMovie;
+const MainMovie = () => {
+  const apiContext = useContext(ApiContext);
+  const movieData = apiContext.firstMovie;
   const { id, overview, poster_path, title, vote_average } = movieData;
   const posterUrl = `${apis.baseUrl}${poster_path}`;
 
