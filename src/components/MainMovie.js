@@ -4,7 +4,6 @@ import apis from "../apis/api";
 import theme from "../styles/theme";
 
 const Wrapper = styled.div`
-  margin-left: 10px;
   display: flex;
   margin-top: 7vh;
   height: 60vh;
@@ -54,6 +53,7 @@ const TextAverage = styled.div`
 const StyledLink = styled(Link)`
   background-color: ${theme.ButtonColor};
   padding: 15px 20px 15px 20px;
+  border-radius: 10px;
 `;
 
 const ImgBox = styled.img`
