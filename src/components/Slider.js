@@ -10,6 +10,21 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  
+  .swiper-container {
+  width: 480px;
+  }
+
+  @media screen and (max-width: 640px) {
+    .swiper-container {
+      width: 640px;
+    }
+  }
+
+  @media screen and (max-width: 1060px) {
+   .swiper-container {
+     width: 800px;
+   }
 `;
 
 const MovieWrapper = styled.div`

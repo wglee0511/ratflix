@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext} from "react";
 import styled from "styled-components";
 import { ApiContext } from "../Context/ApiContext";
 import theme from "../styles/theme";
@@ -6,15 +6,34 @@ import Loader from "./Loader";
 
 const Wrapper = styled.div`
 margin: 7vh 10px 10px 0;
-color: ${theme.FontColor};`;
+color: ${theme.FontColor};
+@media screen and (min-width: 480px) {
+  .grid-box {
+    grid-template-columns: repeat(1, minmax(100px, 1fr));
+  }
+}
+
+@media screen and (min-width: 640px) {
+    .grid-box {
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+  }
+
+  @media screen and (min-width: 1060px) {
+   .grid-box {
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
+   }
+`;
 
 const LoaderWrapper = styled.div.attrs({
   className: "flex-box",
 })`
 margin-top: 30vh;
 `;
-const Movies = styled.div`
+const Movies = styled.div.attrs({
+  className: "grid-box"
+})`
 display: grid;
+grid-gap: 15px;
 
 `;
 
