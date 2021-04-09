@@ -93,6 +93,23 @@ const GlobalStyles = createGlobalStyle`
     }
   
 
+    .swiper-container {
+  width: 480px;
+  }
+
+  @media screen and (min-width: 640px) {
+    .swiper-container {
+      width: 640px;
+    }
+  }
+
+  @media screen and (min-width: 800px) {
+   .swiper-container {
+     width: 800px;
+   }
+}
+
+
 `;
 
 export default GlobalStyles;
