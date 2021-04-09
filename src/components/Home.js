@@ -9,12 +9,15 @@ import Slider from "./Slider";
 
 const Wrapper = styled.div`
   margin-left: 25px;
+  width: 100%;
 `;
 
 const MainFrameDiv = styled.div``;
 
 const SliderDiv = styled.div`
   color: ${theme.FontColor};
+  margin: 3vh 0 3vh 0;
+  width: 100%;
 `;
 
 const LoaderWrapper = styled.div.attrs({

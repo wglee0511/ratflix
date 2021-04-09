@@ -7,12 +7,12 @@ const ApiContext = createContext();
 const ApiProvider = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [firstMovie, setFirstMovie] = useState({});
-  const [now, setNow] = useState({});
-  const [pop, setPop] = useState({});
-  const [top, setTop] = useState({});
-  const [onAirTv, setOnAirTv] = useState({});
-  const [popTv, setPopTv] = useState({});
-  const [topTv, setTopTv] = useState({});
+  const [now, setNow] = useState([]);
+  const [pop, setPop] = useState([]);
+  const [top, setTop] = useState([]);
+  const [onAirTv, setOnAirTv] = useState([]);
+  const [popTv, setPopTv] = useState([]);
+  const [topTv, setTopTv] = useState([]);
 
   useEffect(() => {
     (async () => {

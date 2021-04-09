@@ -1,6 +1,6 @@
 const theme = {
   BannerColor: "red",
-  NavBgColor: "transparent",
+  NavBgColor: "black",
   ButtonColor: "#393e46",
   BgColor: "black",
   EtcColor: "#ffd369",
