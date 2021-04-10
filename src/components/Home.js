@@ -30,7 +30,7 @@ const Home = () => {
   const apiContext = useContext(ApiContext);
   const isLoading = apiContext.isLoading;
 
-  console.log(apiContext);
+
 
   return (
     <Wrapper>

@@ -78,8 +78,6 @@ const TvProgram = (props) => {
   const apiContext = useContext(ApiContext);
   const {onAirTv, popTv, topTv, isLoading} = apiContext;
   
-  console.log(onAirTv)
- 
 
   return (
     <Wrapper>
@@ -95,7 +93,7 @@ const TvProgram = (props) => {
             const { id, vote_average,name, poster_path } = each;
             const posterUrl = `${apis.baseUrl + poster_path}`;
            return <MovieDiv> 
-             <StyledLink key={id} to={`/movies/${id}`}>
+             <StyledLink key={id} to={`/tv/${id}`}>
                <ImageDiv style={{
                  background: `url(${posterUrl})`,
                  backgroundPosition: "center center",
@@ -115,7 +113,7 @@ const TvProgram = (props) => {
             const { id, vote_average,name, poster_path } = each;
             const posterUrl = `${apis.baseUrl + poster_path}`;
            return <MovieDiv> 
-             <StyledLink key={id} to={`/movies/${id}`}>
+             <StyledLink key={id} to={`/tv/${id}`}>
                <ImageDiv style={{
                  background: `url(${posterUrl})`,
                  backgroundPosition: "center center",
@@ -135,7 +133,7 @@ const TvProgram = (props) => {
             const { id, vote_average,name, poster_path } = each;
             const posterUrl = `${apis.baseUrl + poster_path}`;
            return <MovieDiv> 
-             <StyledLink key={id} to={`/movies/${id}`}>
+             <StyledLink key={id} to={`/tv/${id}`}>
                <ImageDiv style={{
                  background: `url(${posterUrl})`,
                  backgroundPosition: "center center",

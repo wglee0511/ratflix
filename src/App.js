@@ -22,10 +22,10 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/movies">
+          <Route exact path="/movies">
             <Movie />
           </Route>
-          <Route path="/tv">
+          <Route exact path="/tv">
             <TvProgram />
           </Route>
           <Route exact path="/search">

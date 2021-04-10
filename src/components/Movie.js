@@ -77,8 +77,6 @@ display: none;
 const Movie = (props) => {
   const apiContext = useContext(ApiContext);
   const {now, pop, top, isLoading} = apiContext;
-  console.log(top);
- 
 
   return (
     <Wrapper>

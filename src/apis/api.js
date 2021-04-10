@@ -21,12 +21,12 @@ const seachForApi = (keyword) =>
 const getNowPlayMovies = api.get("movie/now_playing/");
 const getPopMovies = api.get("movie/popular/");
 const getTopRatedMovies = api.get("movie/top_rated/");
-const getDetailMovie = (movie_id) => api.get(`movie/${movie_id}/videos`);
+const getDetailMovie = (movie_id) => api.get(`movie/${movie_id}`);
 
 const getOnTheAirPrograms = api.get("tv/on_the_air/");
 const getPopPrograms = api.get("tv/popular/");
 const getTopRatedPrograms = api.get("tv/top_rated/");
-const getDetailPrograms = (tv_id) => api.get(`tv/${tv_id}/videos`);
+const getDetailPrograms = (tv_id) => api.get(`tv/${tv_id}`);
 
 const getSearchMovie = (keyword) => seachForApi(keyword).get("search/movie");
 const getSearchProgram = (keyword) => seachForApi(keyword).get("search/tv");
