@@ -11,28 +11,16 @@ const Wrapper = styled.div`
   flex-direction: column;
   width: 100%;
   
-  .swiper-container {
-  width: 480px;
-  }
 
-  @media screen and (max-width: 640px) {
-    .swiper-container {
-      width: 640px;
-    }
-  }
-
-  @media screen and (max-width: 1060px) {
-   .swiper-container {
-     width: 800px;
-   }
+  
 `;
 
 const MovieWrapper = styled.div`
-  height: 20vh;
+
 `;
 const TvWrapper = styled.div`
   margin-top: 3vh;
-  height: 20vh;
+
 `;
 
 const Tittle = styled.h1`
@@ -40,18 +28,21 @@ const Tittle = styled.h1`
   font-weight: 600;
   margin-bottom: 3vh;
 `;
-const ImageDiv = styled.div`
-  width: 240px;
-  height: 130px;
+const ImageDiv = styled.div.attrs({
+  className: "swiper-imagediv"
+})`
+  height: 240px;
   object-fit: fit;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  border-radius: 8px;
+
   :hover {
     .score-text {
       display: block;
     }
   }
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
 
 `;
 const RatingScore = styled.div.attrs({
@@ -79,8 +70,7 @@ const Slider = (props) => {
       <MovieWrapper>
         <Tittle>Ratflix 인기 영화 콘텐츠</Tittle>
         <Swiper
-          spaceBetween={50}
-          slidesPerView={5}
+          spaceBetween={10}
           breakpoints={
             {
               480: {
@@ -91,8 +81,8 @@ const Slider = (props) => {
                 width: 640,
                 slidesPerView: 2
               },
-              800: {
-                width: 800,
+              1060: {
+                width: 1060,
                 slidesPerView: 3
               }
             }
@@ -128,8 +118,7 @@ const Slider = (props) => {
       <TvWrapper>
         <Tittle>Ratflix 인기 TV 콘텐츠</Tittle>
         <Swiper
-          spaceBetween={50}
-          slidesPerView={5}
+          spaceBetween={10}
           breakpoints={
             {
               480: {
@@ -140,8 +129,8 @@ const Slider = (props) => {
                 width: 640,
                 slidesPerView: 2
               },
-              800: {
-                width: 800,
+              1060: {
+                width: 1060,
                 slidesPerView: 3
               }
             }

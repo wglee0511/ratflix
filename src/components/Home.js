@@ -8,7 +8,7 @@ import MainMovie from "./MainMovie";
 import Slider from "./Slider";
 
 const Wrapper = styled.div`
-  margin-left: 25px;
+  margin: 10px 10px 10px 10px;
   width: 100%;
 `;
 

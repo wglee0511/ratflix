@@ -5,19 +5,26 @@ import apis from "../apis/api";
 import { ApiContext } from "../Context/ApiContext";
 import theme from "../styles/theme";
 
-const Wrapper = styled.div`
+const Wrapper = styled.div.attrs({
+  className: "main-wrapper"
+})`
+
   display: flex;
   margin-top: 7vh;
   height: 60vh;
   width: 100%;
   color: ${theme.FontColor};
+  padding: 10px 10px 10px 10px;
+  border-radius: 5px;
+
 `;
-const TextDiv = styled.div`
-  width: 50%;
+const TextDiv = styled.div.attrs({
+  className: "main-textdiv"
+})`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  background-color: ${theme.NavBgColor};
+ 
 `;
 
 const Title = styled.h1`
@@ -32,11 +39,6 @@ const OverView = styled.h3`
 `;
 
 const TextMiddleDiv = styled.div``;
-
-const ImageDiv = styled.div`
-  width: 50%;
-  display: flex;
-`;
 
 const TextBottonDiv = styled.div`
   font-size: 30px;
@@ -58,11 +60,6 @@ const StyledLink = styled(Link)`
   border-radius: 10px;
 `;
 
-const ImgBox = styled.img`
-  background-size: cover;
-  object-fit: scale-down;
-`;
-
 const MainMovie = () => {
   const apiContext = useContext(ApiContext);
   const movieData = apiContext.firstMovie;
@@ -70,7 +67,11 @@ const MainMovie = () => {
   const posterUrl = `${apis.baseUrl}${poster_path}`;
 
   return (
-    <Wrapper>
+    <Wrapper style={{
+      background: `url(${posterUrl})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center center"
+    }} >
       <TextDiv>
         <Title>{title}</Title>
 
@@ -83,9 +84,6 @@ const MainMovie = () => {
           <TextAverage>{vote_average} / 10.0</TextAverage>
         </TextBottonDiv>
       </TextDiv>
-      <ImageDiv>
-        <ImgBox src={posterUrl} />
-      </ImageDiv>
     </Wrapper>
   );
 };
