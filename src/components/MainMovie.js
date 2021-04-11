@@ -8,22 +8,28 @@ import theme from "../styles/theme";
 const Wrapper = styled.div.attrs({
   className: "main-wrapper"
 })`
-
-  display: flex;
   margin-top: 7vh;
   height: 60vh;
   width: 100%;
   color: ${theme.FontColor};
-  padding: 10px 10px 10px 10px;
   border-radius: 5px;
-
 `;
+
+const BackgroundLayer = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0, 0.8);
+  display: flex;
+  padding: 10px 10px 10px 10px;
+`;
+
 const TextDiv = styled.div.attrs({
   className: "main-textdiv"
 })`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  
  
 `;
 
@@ -72,6 +78,8 @@ const MainMovie = () => {
       backgroundSize: "cover",
       backgroundPosition: "center center"
     }} >
+      <BackgroundLayer>
+
       <TextDiv>
         <Title>{title}</Title>
 
@@ -84,6 +92,7 @@ const MainMovie = () => {
           <TextAverage>{vote_average} / 10.0</TextAverage>
         </TextBottonDiv>
       </TextDiv>
+      </BackgroundLayer>
     </Wrapper>
   );
 };

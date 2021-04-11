@@ -63,7 +63,7 @@ const Slider = (props) => {
   const popMovie = apiContext.pop;
   const popTv = apiContext.popTv;
 
-  console.log(popMovie);
+
 
   return (
     <Wrapper>

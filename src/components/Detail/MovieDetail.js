@@ -21,9 +21,27 @@ const MovieDetail = () => {
     (async()=>{
       setIsLoading(true);
       try {
-        const response = await apis.search.getSearchMovie(id);
-        const responseData = response.data;
-        console.log(response);
+        const response = await apis.movies.getDetailMovie(id);
+        const {
+          genres, 
+          homepage, 
+          poster_path,
+          overview,
+          tagline,
+          title,
+          vote_average
+        } = response.data;
+        const fullPosterUrl=`${apis.baseUrl}${poster_path}`;
+        setDetailData({
+          genres, 
+          homepage, 
+          fullPosterUrl,
+          overview,
+          tagline,
+          title,
+          vote_average
+        });
+        setIsLoading(false);
 
       } catch (error) {
         console.log(error);
