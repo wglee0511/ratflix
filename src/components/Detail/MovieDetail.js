@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import apis from "../../apis/api";
 import theme from "../../styles/theme";
 
 const Wrapper = styled.div`
-height: 100vh;
 margin-top: 7vh;
 color: ${theme.FontColor};
-background-color: ${theme.FontColor};
 `;
 
 const MovieDetail = () => {
@@ -29,7 +28,8 @@ const MovieDetail = () => {
           overview,
           tagline,
           title,
-          vote_average
+          vote_average,
+          runtime
         } = response.data;
         const fullPosterUrl=`${apis.baseUrl}${poster_path}`;
         setDetailData({
@@ -39,17 +39,32 @@ const MovieDetail = () => {
           overview,
           tagline,
           title,
-          vote_average
+          vote_average,
+          runtime
         });
         setIsLoading(false);
-
+        console.log(response);
       } catch (error) {
         console.log(error);
       }
     })()
   },[])
 
-  return <Wrapper>MovieDetail</Wrapper>;
+  return <Wrapper>
+    <div>
+      <div>
+        poster
+      </div>
+      <div>
+        <h1>tittle</h1>
+        <div>genres</div>
+        <div>
+          <Link>홈페이지</Link>
+        </div>
+        
+      </div>
+    </div>
+  </Wrapper>;
 };
 
 export default MovieDetail;
