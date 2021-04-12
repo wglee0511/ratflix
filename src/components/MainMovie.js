@@ -6,7 +6,7 @@ import { ApiContext } from "../Context/ApiContext";
 import theme from "../styles/theme";
 
 const Wrapper = styled.div.attrs({
-  className: "main-wrapper"
+  className: "main-wrapper",
 })`
   margin-top: 7vh;
   height: 60vh;
@@ -18,19 +18,17 @@ const Wrapper = styled.div.attrs({
 const BackgroundLayer = styled.div`
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   padding: 10px 10px 10px 10px;
 `;
 
 const TextDiv = styled.div.attrs({
-  className: "main-textdiv"
+  className: "main-textdiv",
 })`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  
- 
 `;
 
 const Title = styled.h1`
@@ -73,25 +71,26 @@ const MainMovie = () => {
   const posterUrl = `${apis.baseUrl}${poster_path}`;
 
   return (
-    <Wrapper style={{
-      background: `url(${posterUrl})`,
-      backgroundSize: "cover",
-      backgroundPosition: "center center"
-    }} >
+    <Wrapper
+      style={{
+        background: `url(${posterUrl})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+      }}
+    >
       <BackgroundLayer>
+        <TextDiv>
+          <Title>{title}</Title>
 
-      <TextDiv>
-        <Title>{title}</Title>
+          <TextMiddleDiv>
+            <OverView>{overview}</OverView>
+          </TextMiddleDiv>
 
-        <TextMiddleDiv>
-          <OverView>{overview}</OverView>
-        </TextMiddleDiv>
-
-        <TextBottonDiv>
-          <StyledLink to={`/movie/${id}`}>상세정보</StyledLink>
-          <TextAverage>{vote_average} / 10.0</TextAverage>
-        </TextBottonDiv>
-      </TextDiv>
+          <TextBottonDiv>
+            <StyledLink to={`/movies/${id}`}>상세정보</StyledLink>
+            <TextAverage>{vote_average} / 10.0</TextAverage>
+          </TextBottonDiv>
+        </TextDiv>
       </BackgroundLayer>
     </Wrapper>
   );

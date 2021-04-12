@@ -24,7 +24,6 @@ const getTopRatedMovies = api.get("movie/top_rated/");
 const getDetailMovie = (movie_id) => api.get(`movie/${movie_id}`);
 const getVideoMovie = (movie_id) => api.get(`movie/${movie_id}/videos`);
 
-
 const getOnTheAirPrograms = api.get("tv/on_the_air/");
 const getPopPrograms = api.get("tv/popular/");
 const getTopRatedPrograms = api.get("tv/top_rated/");
@@ -35,26 +34,26 @@ const getSearchMovie = (keyword) => seachForApi(keyword).get("search/movie");
 const getSearchProgram = (keyword) => seachForApi(keyword).get("search/tv");
 
 const apis = {
-  movies: { 
-    getNowPlayMovies, 
-    getPopMovies, 
-    getTopRatedMovies, 
+  movies: {
+    getNowPlayMovies,
+    getPopMovies,
+    getTopRatedMovies,
     getDetailMovie,
-    getVideoMovie 
+    getVideoMovie,
   },
   tvprograms: {
     getOnTheAirPrograms,
     getPopPrograms,
     getTopRatedPrograms,
     getDetailPrograms,
-    getVideoTV
+    getVideoTV,
   },
   search: {
     getSearchMovie,
     getSearchProgram,
   },
   baseUrl: "https://image.tmdb.org/t/p/w500",
-  youtubeUrl : "https://www.youtube.com/watch?v="
+  youTubeUrl: "https://www.youtube.com/watch?v=",
 };
 
 export default apis;
