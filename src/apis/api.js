@@ -28,7 +28,6 @@ const getOnTheAirPrograms = api.get("tv/on_the_air/");
 const getPopPrograms = api.get("tv/popular/");
 const getTopRatedPrograms = api.get("tv/top_rated/");
 const getDetailPrograms = (tv_id) => api.get(`tv/${tv_id}`);
-const getVideoTV = (tv_id) => api.get(`tv/${tv_id}/videos`);
 
 const getSearchMovie = (keyword) => seachForApi(keyword).get("search/movie");
 const getSearchProgram = (keyword) => seachForApi(keyword).get("search/tv");
@@ -46,7 +45,6 @@ const apis = {
     getPopPrograms,
     getTopRatedPrograms,
     getDetailPrograms,
-    getVideoTV,
   },
   search: {
     getSearchMovie,

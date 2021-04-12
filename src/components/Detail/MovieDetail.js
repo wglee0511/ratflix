@@ -92,8 +92,8 @@ const MovieDetail = () => {
       setIsLoading(true);
       try {
         const response = await apis.movies.getDetailMovie(id);
-        const videoUrl = await (await apis.movies.getVideoMovie(id)).data
-          .results[0].key;
+        const videoData = await apis.movies.getVideoMovie(id);
+        const videoUrl = videoData.data.results[0].key;
         const {
           genres,
           homepage,
