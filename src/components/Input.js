@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import theme from "../styles/theme";
 
@@ -36,9 +36,21 @@ const StyledInput = styled.input`
 `;
 
 const Input = () => {
+  const [keyword, setKeyword] = useState("");
+
+  const handleOnSubmit = (event) => {
+    event.preventDefault();
+    document.location.href = `/search/${keyword}`;
+  };
+
+  const handleOnChange = (event) => {
+    const innnerWord = event.target.value;
+    setKeyword(innnerWord);
+  };
+
   return (
     <Wrapper>
-      <StyledForm>
+      <StyledForm onSubmit={handleOnSubmit}>
         <svg
           aria-hidden="true"
           focusable="false"
@@ -55,7 +67,12 @@ const Input = () => {
           ></path>
         </svg>
 
-        <StyledInput type="text" placeholder="제목" />
+        <StyledInput
+          onChange={handleOnChange}
+          type="text"
+          placeholder="제목"
+          value={keyword}
+        />
       </StyledForm>
     </Wrapper>
   );

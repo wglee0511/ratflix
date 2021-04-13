@@ -1,4 +1,4 @@
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import apis from "../apis/api";
@@ -7,57 +7,49 @@ import theme from "../styles/theme";
 import Loader from "./Loader";
 
 const Wrapper = styled.div`
-margin: 7vh 10px 10px 10px;
-color: ${theme.FontColor};
+  margin: 7vh 10px 10px 10px;
+  color: ${theme.FontColor};
 `;
 
 const LoaderWrapper = styled.div.attrs({
   className: "flex-box",
 })`
-margin-top: 30vh;
+  margin-top: 30vh;
 `;
 const Movies = styled.div.attrs({
-  className: "grid-box"
+  className: "grid-box",
 })`
-display: grid;
-grid-gap: 15px;
-
-
+  display: grid;
+  grid-gap: 15px;
 `;
 
-
 const MovieDiv = styled.div`
-width:100%;
-:hover {
+  width: 100%;
+  :hover {
     .score-text {
       display: block;
     }
   }
 `;
 
-const StyledLink = styled(Link)`
-
-`;
+const StyledLink = styled(Link)``;
 
 const ImageDiv = styled.div`
-height: 20vh;
-border-radius: 8px;
-display: flex;
-justify-content: flex-end;
-align-items: flex-end;
+  height: 20vh;
+  border-radius: 8px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 `;
-
-
 
 const TitleText = styled.h1`
-font-size: 35px;
-font-weight: 800;
-margin-bottom: 3vh;
-margin-top: 3vh;
-
+  font-size: 35px;
+  font-weight: 800;
+  margin-bottom: 3vh;
+  margin-top: 3vh;
 `;
 
-const TittleDiv = styled.div`;
+const TittleDiv = styled.div`
   color: ${theme.FontColor};
   margin: 1vh 0 1vh 0;
   font-size: 20px;
@@ -65,18 +57,18 @@ const TittleDiv = styled.div`;
 `;
 
 const ScoreDiv = styled.div.attrs({
-  className : "score-text"
+  className: "score-text",
 })`
-color: ${theme.EtcColor};
-font-size: 15px;
-font-weight: 800;
-margin: 0 5px 5px 0;
-display: none;
+  color: ${theme.EtcColor};
+  font-size: 15px;
+  font-weight: 800;
+  margin: 0 5px 5px 0;
+  display: none;
 `;
 
 const Movie = (props) => {
   const apiContext = useContext(ApiContext);
-  const {now, pop, top, isLoading} = apiContext;
+  const { now, pop, top, isLoading } = apiContext;
 
   return (
     <Wrapper>
@@ -85,67 +77,81 @@ const Movie = (props) => {
           <Loader />
         </LoaderWrapper>
       )}
-      {!isLoading && <>
-            <TitleText>{`${theme.nowContents}`}</TitleText>
+      {!isLoading && (
+        <>
+          <TitleText>{`${theme.nowContents}`}</TitleText>
           <Movies>
-         {now.map(each => {
-            const { id, vote_average,title, poster_path } = each;
-            const posterUrl = `${apis.baseUrl + poster_path}`;
-           return <MovieDiv> 
-             <StyledLink key={id} to={`/movies/${id}`}>
-               <ImageDiv style={{
-                 background: `url(${posterUrl})`,
-                 backgroundPosition: "center center",
-                 backgroundSize: "cover"
-               }}>
-               <ScoreDiv>{`${vote_average} / 10.0`}</ScoreDiv>
-               </ImageDiv>
-               </StyledLink>
-           <TittleDiv>{title}</TittleDiv> </MovieDiv>
-         })}
-            
+            {now.map((each) => {
+              const { id, vote_average, title, poster_path } = each;
+              const posterUrl = `${apis.baseUrl + poster_path}`;
+              return (
+                <MovieDiv>
+                  <StyledLink key={id} to={`/movies/${id}`}>
+                    <ImageDiv
+                      style={{
+                        background: `url(${posterUrl})`,
+                        backgroundPosition: "center center",
+                        backgroundSize: "cover",
+                      }}
+                    >
+                      <ScoreDiv>{`${vote_average} / 10.0`}</ScoreDiv>
+                    </ImageDiv>
+                  </StyledLink>
+                  <TittleDiv>{title}</TittleDiv>{" "}
+                </MovieDiv>
+              );
+            })}
           </Movies>
-          
+
           <TitleText>{`${theme.popContents}`}</TitleText>
           <Movies>
-         {pop.map(each => {
-            const { id, vote_average,title, poster_path } = each;
-            const posterUrl = `${apis.baseUrl + poster_path}`;
-           return <MovieDiv> 
-             <StyledLink key={id} to={`/movies/${id}`}>
-               <ImageDiv style={{
-                 background: `url(${posterUrl})`,
-                 backgroundPosition: "center center",
-                 backgroundSize: "cover"
-               }}>
-               <ScoreDiv>{`${vote_average} / 10.0`}</ScoreDiv>
-               </ImageDiv>
-               </StyledLink>
-           <TittleDiv>{title}</TittleDiv> </MovieDiv>
-         })}
-            
+            {pop.map((each) => {
+              const { id, vote_average, title, poster_path } = each;
+              const posterUrl = `${apis.baseUrl + poster_path}`;
+              return (
+                <MovieDiv>
+                  <StyledLink key={id} to={`/movies/${id}`}>
+                    <ImageDiv
+                      style={{
+                        background: `url(${posterUrl})`,
+                        backgroundPosition: "center center",
+                        backgroundSize: "cover",
+                      }}
+                    >
+                      <ScoreDiv>{`${vote_average} / 10.0`}</ScoreDiv>
+                    </ImageDiv>
+                  </StyledLink>
+                  <TittleDiv>{title}</TittleDiv>{" "}
+                </MovieDiv>
+              );
+            })}
           </Movies>
 
           <TitleText>{`${theme.topContents}`}</TitleText>
           <Movies>
-         {top.map(each => {
-            const { id, vote_average,title, poster_path } = each;
-            const posterUrl = `${apis.baseUrl + poster_path}`;
-           return <MovieDiv> 
-             <StyledLink key={id} to={`/movies/${id}`}>
-               <ImageDiv style={{
-                 background: `url(${posterUrl})`,
-                 backgroundPosition: "center center",
-                 backgroundSize: "cover"
-               }}>
-               <ScoreDiv>{`${vote_average} / 10.0`}</ScoreDiv>
-               </ImageDiv>
-               </StyledLink>
-           <TittleDiv>{title}</TittleDiv> </MovieDiv>
-         })}
-            
+            {top.map((each) => {
+              const { id, vote_average, title, poster_path } = each;
+              const posterUrl = `${apis.baseUrl + poster_path}`;
+              return (
+                <MovieDiv>
+                  <StyledLink key={id} to={`/movies/${id}`}>
+                    <ImageDiv
+                      style={{
+                        background: `url(${posterUrl})`,
+                        backgroundPosition: "center center",
+                        backgroundSize: "cover",
+                      }}
+                    >
+                      <ScoreDiv>{`${vote_average} / 10.0`}</ScoreDiv>
+                    </ImageDiv>
+                  </StyledLink>
+                  <TittleDiv>{title}</TittleDiv>{" "}
+                </MovieDiv>
+              );
+            })}
           </Movies>
-      </>}
+        </>
+      )}
     </Wrapper>
   );
 };

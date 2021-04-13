@@ -1,24 +1,47 @@
 import React, { useEffect, useState } from "react";
+import { useRouteMatch } from "react-router";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import apis from "../apis/api";
+import theme from "../styles/theme";
+import Movies from "./fragment/Movies";
+import TvPrograms from "./fragment/TvPrograms";
 import Loader from "./Loader";
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  margin: 8vh 10px 10px 10px;
+  color: ${theme.FontColor};
+`;
 
 const LoaderWrapper = styled.div.attrs({
   className: "flex-box",
-})``;
+})`
+  margin-top: 30vh;
+`;
+const TitleText = styled.h1`
+  font-size: 35px;
+  font-weight: 800;
+  margin-bottom: 3vh;
+  margin-top: 3vh;
+`;
 
 const Search = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [movieSearch, setMovieSearch] = useState({});
+  const [movieData, setMovieData] = useState([]);
+  const [tvData, setTvData] = useState([]);
+  const match = useRouteMatch();
+  const keyword = match.params.keyword;
 
   useEffect(() => {
     (async () => {
       setIsLoading(true);
       try {
-        const movieSearch = await apis.search.getSearchMovie("아이언맨");
-
+        const movieSearch = await apis.search.getSearchMovie(keyword);
+        const tvSearch = await apis.search.getSearchProgram(keyword);
+        const movieResults = movieSearch.data.results;
+        const tvResults = movieSearch.data.results;
+        setMovieData(movieResults);
+        setTvData(tvResults);
         setIsLoading(false);
       } catch (error) {
         console.log(error);
@@ -33,7 +56,12 @@ const Search = () => {
           <Loader />
         </LoaderWrapper>
       )}
-      {!isLoading && <div>Search</div>}
+      {!isLoading && (
+        <>
+          <TitleText>{`${keyword} : 검색 결과`}</TitleText>
+          <Movies movieData={movieData} />
+        </>
+      )}
     </Wrapper>
   );
 };
