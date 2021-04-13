@@ -10,6 +10,10 @@ const Wrapper = styled.div`
     .grid-box {
       grid-template-columns: repeat(1, minmax(100px, 1fr));
     }
+    .grid-box-seaaon {
+      grid-template-columns: repeat(1, minmax(200px, 1fr));
+    }
+
     .detail-layout-div {
       flex-direction: column;
     }
@@ -32,6 +36,10 @@ const Wrapper = styled.div`
     .grid-box {
       grid-template-columns: repeat(3, minmax(150px, 1fr));
     }
+    .grid-box-seaaon {
+      grid-template-columns: repeat(3, minmax(200px, 1fr));
+    }
+
     .swiper-imagediv {
       width: 310px;
     }
@@ -52,6 +60,10 @@ const Wrapper = styled.div`
     .grid-box {
       grid-template-columns: repeat(5, minmax(200px, 1fr));
     }
+    .grid-box-seaaon {
+      grid-template-columns: repeat(4, minmax(200px, 1fr));
+    }
+
     .swiper-imagediv {
       width: 350px;
     }

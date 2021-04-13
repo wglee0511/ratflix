@@ -5,7 +5,7 @@ import styled from "styled-components";
 import apis from "../../apis/api";
 import theme from "../../styles/theme";
 import Loader from "../Loader";
-import ReactPlayer from "react-player/youtube";
+import Season from "./Season";
 
 const Wrapper = styled.div`
   margin: 7vh 10px 10px 10px;
@@ -31,8 +31,7 @@ const BackgroundLayerDiv = styled.div.attrs({
 const PosterDiv = styled.div.attrs({
   className: "detail-poster-div",
 })`
-  padding: 5vh 25px 10vh 0;
-  width: 40%;
+  width: 100%;
   height: 100%;
 `;
 const ContentsDiv = styled.div.attrs({
@@ -74,9 +73,9 @@ const LoaderWrapper = styled.div.attrs({
   margin-top: 30vh;
 `;
 
-const ContentDiv = styled.div``;
-const VideoDiv = styled.div`
-  margin: 30px 0 0 0;
+const ContentDiv = styled.div`
+  width: 100%;
+  height: 100%;
 `;
 
 const TvDetail = () => {
@@ -102,7 +101,6 @@ const TvDetail = () => {
           name,
           last_air_date,
         } = response.data;
-
         const fullPosterUrl = `${apis.baseUrl}${poster_path}`;
         const year = new Date(last_air_date).getFullYear();
         setDetailData({
@@ -110,12 +108,11 @@ const TvDetail = () => {
           homepage,
           fullPosterUrl,
           overview,
-          seasons,
           name,
+          seasons,
           episode_run_time,
           year,
         });
-        console.log(seasons);
         setIsLoading(false);
       } catch (error) {
         console.log(error);
@@ -140,7 +137,7 @@ const TvDetail = () => {
         >
           <BackgroundLayerDiv>
             <PosterDiv>
-              <img src={`${detailData.fullPosterUrl}`} style={{}} />
+              <img src={`${detailData.fullPosterUrl}`} alt={detailData.name} />
             </PosterDiv>
             <ContentsDiv>
               <Tittle>{detailData.name}</Tittle>
@@ -175,7 +172,7 @@ const TvDetail = () => {
                     <Genre>{detailData.overview}</Genre>
                   </Route>
                   <Route exact path={`${path}/seasons`}>
-                    <VideoDiv>시즌</VideoDiv>
+                    <Season seasons={detailData.seasons} />
                   </Route>
                 </Switch>
               </ContentDiv>
