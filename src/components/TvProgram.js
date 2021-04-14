@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import apis from "../apis/api";
@@ -31,6 +32,9 @@ const TvProgram = (props) => {
 
   return (
     <Wrapper>
+      <Helmet>
+        <title>TV programs - Ratflix</title>
+      </Helmet>
       {isLoading && (
         <LoaderWrapper>
           <Loader />

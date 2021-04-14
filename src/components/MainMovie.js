@@ -31,16 +31,9 @@ const TextDiv = styled.div.attrs({
   flex-direction: column;
 `;
 
-const Title = styled.h1`
-  font-size: 70px;
-  font-weight: 800;
-`;
+const Title = styled.h1.attrs({ className: "home-maiv-tittle" })``;
 
-const OverView = styled.h3`
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 30px;
-`;
+const OverView = styled.h3.attrs({ className: "home-main-over" })``;
 
 const TextMiddleDiv = styled.div``;
 

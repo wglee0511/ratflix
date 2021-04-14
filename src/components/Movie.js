@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-import apis from "../apis/api";
 import { ApiContext } from "../Context/ApiContext";
 import theme from "../styles/theme";
 import Loader from "./Loader";
 import Movies from "./fragment/Movies";
+import { Helmet } from "react-helmet";
 
 const Wrapper = styled.div`
   margin: 8vh 10px 10px 10px;
@@ -30,6 +29,9 @@ const Movie = (props) => {
 
   return (
     <Wrapper>
+      <Helmet>
+        <title>Movies - Ratflix</title>
+      </Helmet>
       {isLoading && (
         <LoaderWrapper>
           <Loader />

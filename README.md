@@ -1,6 +1,6 @@
-# Movie app 2021
+# Ratflix
 
-React JS Fundamantal Project
+- React Movie app
 
 ---
 
@@ -13,5 +13,11 @@ React JS Fundamantal Project
 - Styled-components
 - Axios
 - React-Router-Dom
+- React-Player
+- Swiper
 
 ---
+
+## API
+
+- The MovieDB API

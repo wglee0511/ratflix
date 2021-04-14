@@ -6,7 +6,7 @@ const Wrapper = styled.div`
     width: 100%;
   }
 
-  @media (min-width: 200px) {
+  @media (min-width: 100px) {
     .grid-box {
       grid-template-columns: repeat(1, minmax(100px, 1fr));
     }
@@ -25,6 +25,15 @@ const Wrapper = styled.div`
       padding: 0 0 0 0;
       width: 90%;
       margin-bottom: 100px;
+    }
+    .home-maiv-tittle {
+      font-size: 50px;
+      font-weight: 800;
+    }
+    .home-main-over {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 30px;
     }
   }
   .swiper-imagediv {
@@ -55,6 +64,15 @@ const Wrapper = styled.div`
       width: 80%;
       margin-bottom: 100px;
     }
+    .home-maiv-tittle {
+      font-size: 60px;
+      font-weight: 800;
+    }
+    .home-main-over {
+      font-size: 25px;
+      font-weight: 400;
+      line-height: 30px;
+    }
   }
   @media (min-width: 1000px) {
     .grid-box {
@@ -78,6 +96,15 @@ const Wrapper = styled.div`
       padding: 5vh 0px 10vh 25px;
       width: 40%;
     }
+    .home-maiv-tittle {
+      font-size: 70px;
+      font-weight: 800;
+    }
+    .home-main-over {
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 35px;
+    }
   }
 
   /* Landscape 모드일 때 적용할 CSS */
@@ -89,7 +116,7 @@ const Wrapper = styled.div`
       height: 15vh;
     }
     .home-wrapper-div {
-      margin: 17vh 10px 10px 10px;
+      margin-top: 17vh;
     }
   }
   /* Portrait 모드일 때 적용할 CSS */
@@ -101,7 +128,7 @@ const Wrapper = styled.div`
       height: 6vh;
     }
     .home-wrapper-div {
-      margin: 10px 10px 10px 10px;
+      margin-top: 8vh;
     }
   }
 `;

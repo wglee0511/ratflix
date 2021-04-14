@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useRouteMatch } from "react-router";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -52,10 +53,18 @@ const Search = () => {
   return (
     <Wrapper>
       {isLoading && (
-        <LoaderWrapper>
-          <Loader />
-        </LoaderWrapper>
+        <>
+          <Helmet>
+            <title>Loading</title>
+          </Helmet>
+          <LoaderWrapper>
+            <Loader />
+          </LoaderWrapper>
+        </>
       )}
+      <Helmet>
+        <title>{`${keyword}`} - Ratflix</title>
+      </Helmet>
       {!isLoading && (
         <>
           <TitleText>{`${keyword} : 영화 검색 결과`}</TitleText>

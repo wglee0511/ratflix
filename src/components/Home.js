@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
+import { Helmet } from "react-helmet";
 import styled from "styled-components";
-import apis from "../apis/api";
 import { ApiContext } from "../Context/ApiContext";
 import theme from "../styles/theme";
 import Loader from "./Loader";
@@ -17,7 +17,7 @@ const MainFrameDiv = styled.div``;
 
 const SliderDiv = styled.div`
   color: ${theme.FontColor};
-  margin: 3vh 0 3vh 0;
+  margin: 50px 10px 50px 10px;
   width: 100%;
 `;
 
@@ -33,6 +33,9 @@ const Home = () => {
 
   return (
     <Wrapper>
+      <Helmet>
+        <title>Ratflix</title>
+      </Helmet>
       {isLoading && (
         <LoaderWrapper>
           <Loader />
