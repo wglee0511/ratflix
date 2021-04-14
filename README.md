@@ -14,6 +14,7 @@
 - Axios
 - React-Router-Dom
 - React-Player
+- React-Helmet
 - Swiper
 
 ---
