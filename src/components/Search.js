@@ -39,7 +39,7 @@ const Search = () => {
         const movieSearch = await apis.search.getSearchMovie(keyword);
         const tvSearch = await apis.search.getSearchProgram(keyword);
         const movieResults = movieSearch.data.results;
-        const tvResults = movieSearch.data.results;
+        const tvResults = tvSearch.data.results;
         setMovieData(movieResults);
         setTvData(tvResults);
         setIsLoading(false);
@@ -58,8 +58,14 @@ const Search = () => {
       )}
       {!isLoading && (
         <>
-          <TitleText>{`${keyword} : 검색 결과`}</TitleText>
+          <TitleText>{`${keyword} : 영화 검색 결과`}</TitleText>
           <Movies movieData={movieData} />
+        </>
+      )}
+      {!isLoading && (
+        <>
+          <TitleText>{`${keyword} : TV프로그램 검색 결과`}</TitleText>
+          <TvPrograms tvData={tvData} />
         </>
       )}
     </Wrapper>

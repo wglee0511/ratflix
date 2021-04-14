@@ -79,6 +79,31 @@ const Wrapper = styled.div`
       width: 40%;
     }
   }
+
+  /* Landscape 모드일 때 적용할 CSS */
+  @media (min-height: 0px) {
+    .nav-div {
+      height: 15vh;
+    }
+    .nav-div-wrapper {
+      height: 15vh;
+    }
+    .home-wrapper-div {
+      margin: 17vh 10px 10px 10px;
+    }
+  }
+  /* Portrait 모드일 때 적용할 CSS */
+  @media (min-height: 400px) {
+    .nav-div {
+      height: 6vh;
+    }
+    .nav-div-wrapper {
+      height: 6vh;
+    }
+    .home-wrapper-div {
+      margin: 10px 10px 10px 10px;
+    }
+  }
 `;
 
 const ResponsiveStyles = (props) => {

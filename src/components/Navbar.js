@@ -4,12 +4,13 @@ import { Link, withRouter } from "react-router-dom";
 import theme from "../styles/theme";
 import Input from "./Input";
 
-const NavDiv = styled.header`
+const NavDiv = styled.header.attrs({
+  className: "nav-div",
+})`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 6vh;
   color: ${theme.FontColor};
   display: flex;
   align-items: center;
@@ -18,9 +19,9 @@ const NavDiv = styled.header`
   z-index: 10;
 `;
 
-const BannerNavWrapper = styled.div`
-  height: 6vh;
-
+const BannerNavWrapper = styled.div.attrs({
+  className: "nav-div-wrapper",
+})`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -80,11 +81,6 @@ export default withRouter(({ location: { pathname } }) => (
         <EachNav>
           <EachLink to="/tv" current={pathname === "/tv"}>
             TV
-          </EachLink>
-        </EachNav>
-        <EachNav>
-          <EachLink to="/search" current={pathname === "/search"}>
-            Search
           </EachLink>
         </EachNav>
       </NavWrapper>

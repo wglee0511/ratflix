@@ -7,8 +7,9 @@ import Loader from "./Loader";
 import MainMovie from "./MainMovie";
 import Slider from "./Slider";
 
-const Wrapper = styled.div`
-  margin: 10px 10px 10px 10px;
+const Wrapper = styled.div.attrs({
+  className: "home-wrapper-div",
+})`
   width: 100%;
 `;
 
@@ -29,8 +30,6 @@ const LoaderWrapper = styled.div.attrs({
 const Home = () => {
   const apiContext = useContext(ApiContext);
   const isLoading = apiContext.isLoading;
-
-
 
   return (
     <Wrapper>

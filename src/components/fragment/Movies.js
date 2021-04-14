@@ -30,13 +30,6 @@ const ImageDiv = styled.div`
   align-items: flex-end;
 `;
 
-const TitleText = styled.h1`
-  font-size: 35px;
-  font-weight: 800;
-  margin-bottom: 3vh;
-  margin-top: 3vh;
-`;
-
 const TittleDiv = styled.div`
   color: ${theme.FontColor};
   margin: 1vh 0 1vh 0;

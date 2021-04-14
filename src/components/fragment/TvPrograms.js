@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import apis from "../../apis/api.js";
 import theme from "../../styles/theme.js";
 
-const Movies = styled.div.attrs({
+const MoviesDiv = styled.div.attrs({
   className: "grid-box",
 })`
   display: grid;
@@ -29,13 +30,6 @@ const ImageDiv = styled.div`
   align-items: flex-end;
 `;
 
-const TitleText = styled.h1`
-  font-size: 35px;
-  font-weight: 800;
-  margin-bottom: 3vh;
-  margin-top: 3vh;
-`;
-
 const TittleDiv = styled.div`
   color: ${theme.FontColor};
   margin: 1vh 0 1vh 0;
@@ -55,8 +49,34 @@ const ScoreDiv = styled.div.attrs({
 
 const TvPrograms = (props) => {
   const tvData = props.tvData;
-  console.log(tvData);
-  return <div></div>;
+  if (tvData.length !== 0) {
+    return (
+      <MoviesDiv>
+        {tvData.map((each) => {
+          const { id, vote_average, name, poster_path } = each;
+          const posterUrl = `${apis.baseUrl + poster_path}`;
+          return (
+            <MovieDiv>
+              <StyledLink key={id} to={`/tv/${id}`}>
+                <ImageDiv
+                  style={{
+                    background: `url(${posterUrl})`,
+                    backgroundPosition: "center center",
+                    backgroundSize: "cover",
+                  }}
+                >
+                  <ScoreDiv>{`${vote_average} / 10.0`}</ScoreDiv>
+                </ImageDiv>
+              </StyledLink>
+              <TittleDiv>{name}</TittleDiv>{" "}
+            </MovieDiv>
+          );
+        })}
+      </MoviesDiv>
+    );
+  } else if (tvData.length === 0) {
+    return <TittleDiv>검색결과가 없습니다.</TittleDiv>;
+  }
 };
 
 export default TvPrograms;
