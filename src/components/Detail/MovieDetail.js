@@ -144,7 +144,11 @@ const MovieDetail = () => {
         >
           <BackgroundLayerDiv>
             <PosterDiv>
-              <img src={`${detailData.fullPosterUrl}`} style={{}} />
+              <img
+                src={`${detailData.fullPosterUrl}`}
+                style={{}}
+                alt={detailData.title}
+              />
             </PosterDiv>
             <ContentsDiv>
               <Tittle>{detailData.title}</Tittle>
@@ -152,7 +156,7 @@ const MovieDetail = () => {
               <Genre>
                 {detailData?.genres?.map((each) => {
                   const name = each.name;
-                  return `${name} `;
+                  return <span>{`${name} `}</span>;
                 })}
               </Genre>
               <NavMenu>

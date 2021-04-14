@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useRouteMatch } from "react-router";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import apis from "../apis/api";
 import theme from "../styles/theme";

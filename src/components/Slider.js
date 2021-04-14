@@ -4,23 +4,17 @@ import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import apis from "../apis/api";
 import { ApiContext } from "../Context/ApiContext";
-import  theme from "../styles/theme";
+import theme from "../styles/theme";
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  
-
-  
 `;
 
-const MovieWrapper = styled.div`
-
-`;
+const MovieWrapper = styled.div``;
 const TvWrapper = styled.div`
   margin-top: 3vh;
-
 `;
 
 const Tittle = styled.h1`
@@ -29,7 +23,7 @@ const Tittle = styled.h1`
   margin-bottom: 3vh;
 `;
 const ImageDiv = styled.div.attrs({
-  className: "swiper-imagediv"
+  className: "swiper-imagediv",
 })`
   height: 240px;
   object-fit: fit;
@@ -43,16 +37,15 @@ const ImageDiv = styled.div.attrs({
       display: block;
     }
   }
-
 `;
 const RatingScore = styled.div.attrs({
-  className: "score-text"
+  className: "score-text",
 })`
-color: ${theme.EtcColor};
-font-size: 15px;
-font-weight: 800;
-margin: 0 5px 5px 0;
-display: none;
+  color: ${theme.EtcColor};
+  font-size: 15px;
+  font-weight: 800;
+  margin: 0 5px 5px 0;
+  display: none;
 `;
 
 const StyledLink = styled(Link)``;
@@ -63,37 +56,32 @@ const Slider = (props) => {
   const popMovie = apiContext.pop;
   const popTv = apiContext.popTv;
 
-
-
   return (
     <Wrapper>
       <MovieWrapper>
         <Tittle>Ratflix 인기 영화 콘텐츠</Tittle>
         <Swiper
           spaceBetween={10}
-          breakpoints={
-            {
-              480: {
-                width: 480,
-                slidesPerView: 1
-              },
-              640: {
-                width: 640,
-                slidesPerView: 2
-              },
-              1060: {
-                width: 1060,
-                slidesPerView: 3
-              }
-            }
-          }
-
+          breakpoints={{
+            480: {
+              width: 480,
+              slidesPerView: 1,
+            },
+            640: {
+              width: 640,
+              slidesPerView: 2,
+            },
+            1060: {
+              width: 1060,
+              slidesPerView: 3,
+            },
+          }}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
         >
           {!isLoading &&
             popMovie.map((each) => {
-              const { id, vote_average, release_date, poster_path } = each;
+              const { id, vote_average, poster_path } = each;
               const posterUrl = `${apis.baseUrl + poster_path}`;
               return (
                 <SwiperSlide>
@@ -102,13 +90,11 @@ const Slider = (props) => {
                       style={{
                         background: `url(${posterUrl})`,
                         backgroundSize: "cover",
-                        backgroundPosition: "center center"
-                        
+                        backgroundPosition: "center center",
                       }}
                     >
-                      <RatingScore>
-                        {`${vote_average} / 10`}
-                        </RatingScore></ImageDiv>
+                      <RatingScore>{`${vote_average} / 10`}</RatingScore>
+                    </ImageDiv>
                   </StyledLink>
                 </SwiperSlide>
               );
@@ -119,28 +105,26 @@ const Slider = (props) => {
         <Tittle>Ratflix 인기 TV 콘텐츠</Tittle>
         <Swiper
           spaceBetween={10}
-          breakpoints={
-            {
-              480: {
-                width: 480,
-                slidesPerView: 1
-              },
-              640: {
-                width: 640,
-                slidesPerView: 2
-              },
-              1060: {
-                width: 1060,
-                slidesPerView: 3
-              }
-            }
-          }
+          breakpoints={{
+            480: {
+              width: 480,
+              slidesPerView: 1,
+            },
+            640: {
+              width: 640,
+              slidesPerView: 2,
+            },
+            1060: {
+              width: 1060,
+              slidesPerView: 3,
+            },
+          }}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
         >
-         {!isLoading &&
+          {!isLoading &&
             popTv.map((each) => {
-              const { id, vote_average, release_date, poster_path } = each;
+              const { id, vote_average, poster_path } = each;
               const posterUrl = `${apis.baseUrl + poster_path}`;
               return (
                 <SwiperSlide>
@@ -149,15 +133,14 @@ const Slider = (props) => {
                       style={{
                         background: `url(${posterUrl})`,
                       }}
-                    ><RatingScore>
-                    {`${vote_average} / 10`}
-                    </RatingScore></ImageDiv>
+                    >
+                      <RatingScore>{`${vote_average} / 10`}</RatingScore>
+                    </ImageDiv>
                   </StyledLink>
                 </SwiperSlide>
               );
             })}
         </Swiper>
-       
       </TvWrapper>
     </Wrapper>
   );

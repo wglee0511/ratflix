@@ -150,7 +150,11 @@ const TvDetail = () => {
               </Genre>
               <NavMenu>
                 <EachMenu>
-                  <a target="_blank" href={detailData.homepage}>
+                  <a
+                    target="_blank"
+                    href={detailData.homepage}
+                    rel="noreferrer"
+                  >
                     홈페이지
                   </a>
                 </EachMenu>
