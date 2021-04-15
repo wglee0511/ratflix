@@ -75,7 +75,7 @@ const Movies = (props) => {
         })}
       </MoviesDiv>
     );
-  } else if (movieData.length === 0) {
+  } else if (movieData.length === 0 || movieData.length === undefined) {
     return <TittleDiv>검색결과가 없습니다.</TittleDiv>;
   }
 };

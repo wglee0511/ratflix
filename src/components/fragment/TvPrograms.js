@@ -74,7 +74,7 @@ const TvPrograms = (props) => {
         })}
       </MoviesDiv>
     );
-  } else if (tvData.length === 0) {
+  } else if (tvData.length === 0 || tvData.length === undefined) {
     return <TittleDiv>검색결과가 없습니다.</TittleDiv>;
   }
 };

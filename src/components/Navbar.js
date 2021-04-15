@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { Link, withRouter } from "react-router-dom";
 import theme from "../styles/theme";
-import Input from "./Input";
 
 const NavDiv = styled.header.attrs({
   className: "nav-div",
@@ -83,8 +82,12 @@ export default withRouter(({ location: { pathname } }) => (
             TV
           </EachLink>
         </EachNav>
+        <EachNav>
+          <EachLink to="/search" current={pathname === "/search"}>
+            Search
+          </EachLink>
+        </EachNav>
       </NavWrapper>
     </BannerNavWrapper>
-    <Input />
   </NavDiv>
 ));

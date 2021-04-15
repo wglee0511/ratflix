@@ -33,7 +33,7 @@ function App() {
           <Route exact path="/tv">
             <TvProgram />
           </Route>
-          <Route path="/search/:keyword">
+          <Route exact path="/search">
             <Search />
           </Route>
           <Route path="/movies/:id">
