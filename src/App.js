@@ -1,6 +1,11 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import Movie from "./components/Movie";
 import TvProgram from "./components/TvProgram";
 import Search from "./components/Search";
@@ -28,7 +33,7 @@ function App() {
           <Route exact path="/tv">
             <TvProgram />
           </Route>
-          <Route exact path="/search/:keyword">
+          <Route path="/search/:keyword">
             <Search />
           </Route>
           <Route path="/movies/:id">
@@ -37,6 +42,7 @@ function App() {
           <Route path="/tv/:id">
             <TvDetail />
           </Route>
+          <Redirect from="*" to="/" />
         </Switch>
       </Router>
     </Wrapper>
