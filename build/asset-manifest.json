@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/ratflix/static/js/main.d161d594.chunk.js",
-    "main.js.map": "/ratflix/static/js/main.d161d594.chunk.js.map",
-    "runtime-main.js": "/ratflix/static/js/runtime-main.6f222219.js",
-    "runtime-main.js.map": "/ratflix/static/js/runtime-main.6f222219.js.map",
+    "main.js": "/ratflix/static/js/main.0d21fb60.chunk.js",
+    "main.js.map": "/ratflix/static/js/main.0d21fb60.chunk.js.map",
+    "runtime-main.js": "/ratflix/static/js/runtime-main.fe561836.js",
+    "runtime-main.js.map": "/ratflix/static/js/runtime-main.fe561836.js.map",
     "static/css/2.01296cc8.chunk.css": "/ratflix/static/css/2.01296cc8.chunk.css",
-    "static/js/2.bd830a2a.chunk.js": "/ratflix/static/js/2.bd830a2a.chunk.js",
-    "static/js/2.bd830a2a.chunk.js.map": "/ratflix/static/js/2.bd830a2a.chunk.js.map",
+    "static/js/2.56d41466.chunk.js": "/ratflix/static/js/2.56d41466.chunk.js",
+    "static/js/2.56d41466.chunk.js.map": "/ratflix/static/js/2.56d41466.chunk.js.map",
     "index.html": "/ratflix/index.html",
     "static/css/2.01296cc8.chunk.css.map": "/ratflix/static/css/2.01296cc8.chunk.css.map",
-    "static/js/2.bd830a2a.chunk.js.LICENSE.txt": "/ratflix/static/js/2.bd830a2a.chunk.js.LICENSE.txt"
+    "static/js/2.56d41466.chunk.js.LICENSE.txt": "/ratflix/static/js/2.56d41466.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.6f222219.js",
+    "static/js/runtime-main.fe561836.js",
     "static/css/2.01296cc8.chunk.css",
-    "static/js/2.bd830a2a.chunk.js",
-    "static/js/main.d161d594.chunk.js"
+    "static/js/2.56d41466.chunk.js",
+    "static/js/main.0d21fb60.chunk.js"
   ]
 }
