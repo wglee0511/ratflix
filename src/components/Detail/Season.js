@@ -32,7 +32,7 @@ const YearHead = styled.h2`
 
 const Season = (props) => {
   const { seasons } = props;
-  console.log(seasons);
+
   return (
     <VideoDiv>
       {seasons?.map((each) => {

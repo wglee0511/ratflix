@@ -29,8 +29,9 @@ const StyledInput = styled.input`
 `;
 
 const Input = (props) => {
+  const { inputKeyword, onKeywordSubmit, onKeywordChange } = props;
   return (
-    <StyledForm onSubmit={props.onKeywordSubmit}>
+    <StyledForm onSubmit={onKeywordSubmit}>
       <svg
         aria-hidden="true"
         focusable="false"
@@ -50,8 +51,8 @@ const Input = (props) => {
       <StyledInput
         type="text"
         placeholder="제목"
-        value={props.keyword}
-        onChange={props.handleOnChange}
+        value={inputKeyword}
+        onChange={onKeywordChange}
       />
     </StyledForm>
   );

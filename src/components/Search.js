@@ -21,18 +21,21 @@ const TitleText = styled.h1`
 `;
 
 const Search = () => {
+  const [inputWord, setInputWord] = useState("");
   const [keyword, setKeyword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [movieData, setMovieData] = useState([]);
   const [tvData, setTvData] = useState([]);
 
   const handleOnChange = (event) => {
-    setKeyword(event.target.value);
+    setInputWord(event.target.value);
+    setKeyword("");
   };
 
   const handleOnSubmit = (event) => {
     event.preventDefault();
-    setKeyword("");
+    setKeyword(inputWord);
+    setInputWord("");
   };
   useEffect(() => {
     (async () => {
@@ -49,7 +52,7 @@ const Search = () => {
         console.log(error);
       }
     })();
-  }, []);
+  }, [keyword]);
 
   return (
     <Wrapper>
@@ -65,7 +68,7 @@ const Search = () => {
       </Helmet>
 
       <Input
-        keyword={keyword}
+        inputKeyword={inputWord}
         onKeywordChange={handleOnChange}
         onKeywordSubmit={handleOnSubmit}
       />
