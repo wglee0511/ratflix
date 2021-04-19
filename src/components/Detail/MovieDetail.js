@@ -82,6 +82,7 @@ const VideoDiv = styled.div`
 const MovieDetail = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [detailData, setDetailData] = useState({});
+  const failUrl = "https://www.youtube.com/watch?v=undefined";
   const params = useParams();
   const id = params.id;
   const match = useRouteMatch();
@@ -93,7 +94,7 @@ const MovieDetail = () => {
       try {
         const response = await apis.movies.getDetailMovie(id);
         const videoData = await apis.movies.getVideoMovie(id);
-        const videoUrl = videoData.data.results[0].key;
+        const videoUrl = videoData.data.results[0]?.key;
         const {
           genres,
           homepage,
@@ -185,7 +186,11 @@ const MovieDetail = () => {
                   </Route>
                   <Route exact path={`${path}/video`}>
                     <VideoDiv>
-                      <ReactPlayer width="100%" url={detailData.youtubeUrl} />
+                      {detailData.youtubeUrl !== failUrl ? (
+                        <ReactPlayer width="100%" url={detailData.youtubeUrl} />
+                      ) : (
+                        "예고편이 존재하지 않습니다."
+                      )}
                     </VideoDiv>
                   </Route>
                 </Switch>
