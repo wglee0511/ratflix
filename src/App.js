@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
