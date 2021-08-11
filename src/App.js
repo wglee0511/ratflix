@@ -22,8 +22,8 @@ const Wrapper = styled.div`
 function App() {
   return (
     <Wrapper>
-      <MetaScript />
       <Router>
+        <MetaScript />
         <Navbar />
         <Switch>
           <Route exact path="/">

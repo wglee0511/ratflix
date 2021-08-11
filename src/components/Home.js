@@ -5,6 +5,7 @@ import { ApiContext } from "../Context/ApiContext";
 import theme from "../styles/theme";
 import Loader from "./Loader";
 import MainMovie from "./MainMovie";
+import MetaScript from "./MetaSctipt";
 import Slider from "./Slider";
 
 const Wrapper = styled.div.attrs({
@@ -33,9 +34,7 @@ const Home = () => {
 
   return (
     <Wrapper>
-      <Helmet>
-        <title>Ratflix</title>
-      </Helmet>
+      <MetaScript />
       {isLoading && (
         <LoaderWrapper>
           <Loader />
