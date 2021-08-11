@@ -9,11 +9,10 @@ const MetaScript = () => {
       <link rel="icon" href={favicon} />
       <meta name="description" content="Ratflix" />
       <meta name="keywords" content="Ratflix" />
-      <meta property="og:title" content="Ratflix" />
+      <meta property="og:type" content="Ratflix" />
+      <meta property="og:title" content="영화" />
+      <meta property="og:descriptoin" content="영화입니다" />
       <meta property="og:image" content={main} />
-      <meta property="og:site_name" content="Ratflix" />
-      <meta property="og:description" content="Ratflix" />
-
       <meta name="twitter:title" content="Ratflix" />
       <meta name="twitter:description" content="Ratflix" />
       <meta name="twitter:image" content={main} />
