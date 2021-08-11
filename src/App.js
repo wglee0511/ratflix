@@ -13,6 +13,7 @@ import Home from "./components/Home";
 import styled from "styled-components";
 import MovieDetail from "./components/Detail/MovieDetail";
 import TvDetail from "./components/Detail/TvDetail";
+import MetaScript from "./components/MetaSctipt";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -21,6 +22,7 @@ const Wrapper = styled.div`
 function App() {
   return (
     <Wrapper>
+      <MetaScript />
       <Router>
         <Navbar />
         <Switch>
